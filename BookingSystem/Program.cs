@@ -78,3 +78,87 @@ public class BookingSystem
         }
     }
 }
+public interface IConcert
+{
+    string Name { get; set; }
+    DateTime Date { get; set; }
+    string Location { get; set; }
+    int AvailableSeats { get; set; }
+    decimal Price { get; }
+}
+
+public class RegularConcert : IConcert
+{
+    public string Name { get; set; }
+    public DateTime Date { get; set; }
+    public string Location { get; set; }
+    public int AvailableSeats { get; set; }
+    public decimal Price { get; set; }
+
+    public RegularConcert(string name, DateTime date, string location, int availableSeats, decimal price)
+    {
+        Name = name;
+        Date = date;
+        Location = location;
+        AvailableSeats = availableSeats;
+        Price = price;
+    }
+}
+
+public class VIPConcert : IConcert
+{
+    public string Name { get; set; }
+    public DateTime Date { get; set; }
+    public string Location { get; set; }
+    public int AvailableSeats { get; set; }
+    public decimal Price { get; set; }
+    public bool HasMeetAndGreet { get; set; }  // Możliwość spotkania z artystą
+
+    public VIPConcert(string name, DateTime date, string location, int availableSeats, decimal price, bool hasMeetAndGreet)
+    {
+        Name = name;
+        Date = date;
+        Location = location;
+        AvailableSeats = availableSeats;
+        Price = price;
+        HasMeetAndGreet = hasMeetAndGreet;
+    }
+}
+
+public class OnlineConcert : IConcert
+{
+    public string Name { get; set; }
+    public DateTime Date { get; set; }
+    public string Location { get; set; }
+    public int AvailableSeats { get; set; }
+    public decimal Price { get; set; }
+
+    public OnlineConcert(string name, DateTime date, int availableSeats, decimal price)
+    {
+        Name = name;
+        Date = date;
+        Location = "Online";
+        AvailableSeats = availableSeats;
+        Price = price;
+    }
+}
+
+public class PrivateConcert : IConcert
+{
+    public string Name { get; set; }
+    public DateTime Date { get; set; }
+    public string Location { get; set; }
+    public int AvailableSeats { get; set; }
+    public decimal Price { get; set; }
+    public string InvitationCode { get; set; }
+
+    public PrivateConcert(string name, DateTime date, string location, int availableSeats, decimal price, string invitationCode)
+    {
+        Name = name;
+        Date = date;
+        Location = location;
+        AvailableSeats = availableSeats;
+        Price = price;
+        InvitationCode = invitationCode;
+    }
+}
